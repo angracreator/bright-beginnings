@@ -25,9 +25,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="lg:col-span-1">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 inline-block mb-4">
-              <img src={logo} alt="Siwan Healthcare Services" className="h-16 w-auto" />
-            </div>
+            <img 
+              src={logo} 
+              alt="Siwan Healthcare Services" 
+              className="h-16 w-auto mb-4 brightness-0 invert opacity-90" 
+            />
             <p className="text-secondary-foreground/80 text-sm leading-relaxed">
               Siwan Healthcare Services provides compassionate, professional home
               healthcare services to individuals and families. Serving since 2024.
