@@ -1,9 +1,7 @@
 import logo from "@/assets/logo.png";
-import { Heart } from "lucide-react";
+import { Heart, Phone, MessageCircle } from "lucide-react";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   const quickLinks = [
     { label: "Home", href: "#" },
     { label: "Services", href: "#services" },
@@ -27,10 +25,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="lg:col-span-1">
-            <img src={logo} alt="Siwan Healthcare Services" className="h-14 mb-4 bg-background rounded p-2" />
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 inline-block mb-4">
+              <img src={logo} alt="Siwan Healthcare Services" className="h-16 w-auto" />
+            </div>
             <p className="text-secondary-foreground/80 text-sm leading-relaxed">
               Siwan Healthcare Services provides compassionate, professional home
-              healthcare services to individuals and families across Bihar.
+              healthcare services to individuals and families. Serving since 2024.
             </p>
           </div>
 
@@ -74,12 +74,31 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-lg mb-4 text-gold">
               Contact Us
             </h4>
-            <div className="space-y-2 text-secondary-foreground/80 text-sm">
-              <p>Siwan, Bihar, India</p>
-              <p>+91 XXXXX XXXXX</p>
+            <div className="space-y-3 text-secondary-foreground/80 text-sm">
+              <p>Siwan, Haryana, INDIA (136033)</p>
+              <div className="flex items-center gap-3">
+                <a
+                  href="tel:+919896227706"
+                  className="flex items-center gap-2 hover:text-gold transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  +91 98962 27706
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://wa.me/919896227706"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-green-400 transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  WhatsApp Us
+                </a>
+              </div>
               <p>
-                <a href="mailto:info@siwanhealthcare.com" className="hover:text-gold transition-colors">
-                  info@siwanhealthcare.com
+                <a href="mailto:support@siwanhealthcareservices.in" className="hover:text-gold transition-colors">
+                  support@siwanhealthcareservices.in
                 </a>
               </p>
             </div>
@@ -89,7 +108,7 @@ const Footer = () => {
         <div className="border-t border-secondary-foreground/20 mt-10 pt-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-secondary-foreground/60 text-sm text-center md:text-left">
-              © {currentYear} Siwan Healthcare Services. All rights reserved.
+              © 2024-{new Date().getFullYear()} Siwan Healthcare Services. All rights reserved.
             </p>
             <p className="text-secondary-foreground/60 text-sm flex items-center gap-1">
               Made with <Heart className="w-4 h-4 fill-gold text-gold" /> for better healthcare

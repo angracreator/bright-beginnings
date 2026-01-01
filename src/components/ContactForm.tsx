@@ -3,28 +3,38 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { toast } from "sonner";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 
 const contactInfo = [
   {
     icon: MapPin,
     title: "Address",
-    content: "Siwan, Bihar, India",
+    content: "Siwan, Haryana, INDIA (136033)",
+    href: null,
   },
   {
     icon: Phone,
     title: "Phone",
-    content: "+91 XXXXX XXXXX",
+    content: "+91 98962 27706",
+    href: "tel:+919896227706",
+  },
+  {
+    icon: MessageCircle,
+    title: "WhatsApp",
+    content: "Chat with us",
+    href: "https://wa.me/919896227706",
   },
   {
     icon: Mail,
     title: "Email",
-    content: "info@siwanhealthcare.com",
+    content: "support@siwanhealthcareservices.in",
+    href: "mailto:support@siwanhealthcareservices.in",
   },
   {
     icon: Clock,
     title: "Hours",
     content: "24/7 Emergency Care Available",
+    href: null,
   },
 ];
 
@@ -94,7 +104,18 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-secondary">{info.title}</h4>
-                    <p className="text-muted-foreground">{info.content}</p>
+                    {info.href ? (
+                      <a
+                        href={info.href}
+                        target={info.href.startsWith("https") ? "_blank" : undefined}
+                        rel={info.href.startsWith("https") ? "noopener noreferrer" : undefined}
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {info.content}
+                      </a>
+                    ) : (
+                      <p className="text-muted-foreground">{info.content}</p>
+                    )}
                   </div>
                 </div>
               ))}
