@@ -38,18 +38,52 @@ const contactInfo = [
   },
 ];
 
+const serviceOptions = [
+  "General Nursing Care",
+  "Home Health Aide",
+  "Mother & Baby Care",
+  "Dementia & Elderly Care",
+  "Post-Surgery Care",
+  "Chronic Disease Management",
+  "Other",
+];
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
+    service: "",
+    preferredDate: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you for contacting us! We'll get back to you soon.");
-    setFormData({ name: "", phone: "", email: "", message: "" });
+    setIsSubmitting(true);
+
+    // Create mailto link with form data as a fallback
+    const subject = encodeURIComponent(`Booking Request: ${formData.service || "Healthcare Service"}`);
+    const body = encodeURIComponent(
+      `New Booking Request\n\n` +
+      `Name: ${formData.name}\n` +
+      `Phone: ${formData.phone}\n` +
+      `Email: ${formData.email}\n` +
+      `Service: ${formData.service}\n` +
+      `Preferred Date: ${formData.preferredDate || "Not specified"}\n\n` +
+      `Message:\n${formData.message}`
+    );
+
+    // Open mailto link
+    window.location.href = `mailto:support@siwanhealthcareservices.in?subject=${subject}&body=${body}`;
+
+    // Show success message
+    setTimeout(() => {
+      toast.success("Your email client has been opened. Please send the email to complete your booking request.");
+      setFormData({ name: "", phone: "", email: "", service: "", preferredDate: "", message: "" });
+      setIsSubmitting(false);
+    }, 500);
   };
 
   return (
@@ -62,7 +96,7 @@ const ContactForm = () => {
             viewport={{ once: true }}
             className="text-primary font-semibold text-sm uppercase tracking-wider"
           >
-            Get In Touch
+            Book an Appointment
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -71,7 +105,7 @@ const ContactForm = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-4xl font-heading font-bold text-secondary mt-2 mb-4"
           >
-            Contact Us Today
+            Schedule Your Care Today
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -80,8 +114,8 @@ const ContactForm = () => {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            Ready to experience quality home healthcare? Reach out to us and let's
-            discuss how we can help you or your loved ones.
+            Ready to experience quality home healthcare? Fill out the form below
+            and we'll get back to you within 24 hours.
           </motion.p>
         </div>
 
@@ -122,7 +156,7 @@ const ContactForm = () => {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Booking Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -133,7 +167,7 @@ const ContactForm = () => {
               <div>
                 <Input
                   type="text"
-                  placeholder="Your Full Name"
+                  placeholder="Your Full Name *"
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
@@ -145,7 +179,7 @@ const ContactForm = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Input
                   type="tel"
-                  placeholder="Phone Number"
+                  placeholder="Phone Number *"
                   value={formData.phone}
                   onChange={(e) =>
                     setFormData({ ...formData, phone: e.target.value })
@@ -155,13 +189,40 @@ const ContactForm = () => {
                 />
                 <Input
                   type="email"
-                  placeholder="Email Address"
+                  placeholder="Email Address *"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
                   required
                   className="h-12"
+                />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <select
+                  value={formData.service}
+                  onChange={(e) =>
+                    setFormData({ ...formData, service: e.target.value })
+                  }
+                  required
+                  className="h-12 w-full px-4 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                >
+                  <option value="">Select a Service *</option>
+                  {serviceOptions.map((service) => (
+                    <option key={service} value={service}>
+                      {service}
+                    </option>
+                  ))}
+                </select>
+                <Input
+                  type="date"
+                  placeholder="Preferred Date"
+                  value={formData.preferredDate}
+                  onChange={(e) =>
+                    setFormData({ ...formData, preferredDate: e.target.value })
+                  }
+                  className="h-12"
+                  min={new Date().toISOString().split("T")[0]}
                 />
               </div>
               <div>
@@ -176,9 +237,13 @@ const ContactForm = () => {
                   className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
                 />
               </div>
-              <Button type="submit" size="lg" className="w-full">
-                Send Message
+              <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? "Opening Email..." : "Book Appointment"}
               </Button>
+              <p className="text-xs text-muted-foreground text-center">
+                By submitting this form, your email client will open with the booking details.
+                Send the email to complete your request.
+              </p>
             </form>
           </motion.div>
         </div>

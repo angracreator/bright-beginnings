@@ -1,5 +1,6 @@
-import logo from "@/assets/logo.png";
 import { Heart, Phone, MessageCircle } from "lucide-react";
+
+const LOGO_URL = "https://siwanhealthcare.tiiny.site/logo.png";
 
 const Footer = () => {
   const quickLinks = [
@@ -26,9 +27,12 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="lg:col-span-1">
             <img 
-              src={logo} 
+              src={LOGO_URL} 
               alt="Siwan Healthcare Services" 
-              className="h-16 w-auto mb-4 brightness-0 invert opacity-90" 
+              className="h-16 w-auto mb-4 brightness-0 invert opacity-90"
+              onError={(e) => {
+                e.currentTarget.src = "/placeholder.svg";
+              }}
             />
             <p className="text-secondary-foreground/80 text-sm leading-relaxed">
               Siwan Healthcare Services provides compassionate, professional home
