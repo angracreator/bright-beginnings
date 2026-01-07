@@ -1,6 +1,6 @@
 import { Heart, Phone, MessageCircle } from "lucide-react";
 
-const LOGO_URL = "https://siwanhealthcare.tiiny.site/logo.png";
+const LOGO_URL = "https://siwanhealthcareservices.in/wp-content/uploads/2026/01/LOGO.png";
 
 const Footer = () => {
   const quickLinks = [
