@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const LOGO_URL = "https://siwanhealthcare.tiiny.site/logo.png";
+const LOGO_URL = "https://siwanhealthcareservices.in/wp-content/uploads/2026/01/LOGO.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,7 +13,6 @@ const Header = () => {
     { label: "Services", href: "#services" },
     { label: "About Us", href: "#about" },
     { label: "Testimonials", href: "#testimonials" },
-    { label: "Contact", href: "#contact" },
   ];
 
   return (
