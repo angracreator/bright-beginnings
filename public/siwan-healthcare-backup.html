@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siwan Healthcare Services - Compassionate Care at Your Doorstep</title>
+  <meta name="description" content="Siwan Healthcare Services (SHS) provides professional, compassionate home healthcare services in Bihar. Expert nursing care, elderly care, and post-surgery support.">
+  <meta name="author" content="Siwan Healthcare Services">
+  <meta name="keywords" content="home healthcare, nursing care, Siwan, Bihar, elderly care, post-surgery care, healthcare services, home nursing, caregiver">
+  <link rel="canonical" href="https://siwanhealthcare.com">
+  
+  <meta property="og:title" content="Siwan Healthcare Services - Compassionate Care at Your Doorstep">
+  <meta property="og:description" content="Professional home healthcare services in Bihar. Expert nursing care, elderly care, and post-surgery support.">
+  <meta property="og:type" content="website">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --background: hsl(0, 0%, 100%);
+      --foreground: hsl(0, 0%, 20%);
+      --card: hsl(0, 0%, 100%);
+      --card-foreground: hsl(0, 0%, 20%);
+      --primary: hsl(168, 57%, 39%);
+      --primary-foreground: hsl(0, 0%, 100%);
+      --secondary: hsl(195, 37%, 24%);
+      --secondary-foreground: hsl(0, 0%, 100%);
+      --accent: hsl(43, 74%, 66%);
+      --accent-foreground: hsl(0, 0%, 20%);
+      --muted: hsl(160, 14%, 96%);
+      --muted-foreground: hsl(0, 0%, 45%);
+      --destructive: hsl(0, 84%, 60%);
+      --border: hsl(160, 14%, 90%);
+      --input: hsl(160, 14%, 90%);
+      --ring: hsl(168, 57%, 39%);
+      --gold: hsl(43, 74%, 66%);
+      --radius: 0.5rem;
+    }
+    
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+    
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+    
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    .logo { height: 56px; }
+    .nav { display: flex; align-items: center; gap: 0.5rem; }
+    .nav-link {
+      padding: 0.5rem 1rem;
+      color: var(--foreground);
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: var(--radius);
+      transition: all 0.2s;
+    }
+    .nav-link:hover { background: var(--muted); color: var(--primary); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.625rem 1.5rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+    .btn-primary { background: var(--primary); color: var(--primary-foreground); }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-outline { background: transparent; border: 2px solid var(--border); color: var(--foreground); }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+    .btn-hero { background: var(--gold); color: var(--secondary); font-weight: 700; padding: 1rem 2rem; font-size: 1rem; }
+    .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+    .btn-hero-outline { background: transparent; border: 2px solid var(--primary-foreground); color: var(--primary-foreground); padding: 1rem 2rem; font-size: 1rem; }
+    .btn-hero-outline:hover { background: var(--primary-foreground); color: var(--secondary); }
+    .btn-hero-accent { background: var(--primary); color: var(--primary-foreground); padding: 1rem 2rem; font-size: 1rem; }
+    .btn-hero-accent:hover { opacity: 0.9; transform: translateY(-2px); }
+    
+    .mobile-menu-btn { display: none; background: none; border: none; padding: 0.5rem; cursor: pointer; }
+    .mobile-nav { display: none; }
+    
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .mobile-menu-btn { display: block; }
+      .mobile-nav.active {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--background);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        padding: 1rem;
+      }
+      .mobile-nav a {
+        display: block;
+        padding: 0.75rem 1rem;
+        color: var(--foreground);
+        text-decoration: none;
+        border-radius: var(--radius);
+        font-weight: 500;
+      }
+      .mobile-nav a:hover { background: var(--muted); }
+      .mobile-nav .btn { width: 100%; margin-top: 0.5rem; }
+    }
+    
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1920&q=80') center/cover;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--secondary);
+      opacity: 0.75;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+      animation: fadeUp 0.6s ease-out;
+    }
+    .hero h1 {
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      color: var(--primary-foreground);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero p {
+      font-size: 1.125rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 2rem;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .hero-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+    .hero-wave path { fill: var(--background); }
+    
+    /* Sections */
+    .section { padding: 5rem 0; }
+    .section-muted { background: var(--muted); }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-label {
+      display: inline-block;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: clamp(1.875rem, 4vw, 2.5rem);
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      color: var(--muted-foreground);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .feature-card.visible { opacity: 1; transform: translateY(0); }
+    .feature-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(46, 139, 130, 0.1);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      transition: all 0.3s;
+    }
+    .feature-card:hover .feature-icon { background: rgba(46, 139, 130, 0.2); }
+    .feature-icon svg { width: 28px; height: 28px; color: var(--primary); }
+    .feature-card h3 { font-size: 1.25rem; color: var(--secondary); margin-bottom: 0.5rem; }
+    .feature-card p { color: var(--muted-foreground); font-size: 0.9375rem; }
+    
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .service-card.visible { opacity: 1; transform: translateY(0); }
+    .service-card:hover { box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+    .service-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .service-card:hover .service-icon { transform: scale(1.1); }
+    .service-icon svg { width: 24px; height: 24px; color: var(--primary-foreground); }
+    .service-card h3 { font-size: 1.25rem; color: var(--secondary); }
+    .service-card > p { color: var(--muted-foreground); margin-bottom: 1rem; font-size: 0.9375rem; }
+    .service-features { list-style: none; margin-bottom: 1rem; }
+    .service-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--foreground);
+      margin-bottom: 0.5rem;
+    }
+    .service-features li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    .service-expanded {
+      display: none;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+      animation: fadeIn 0.3s ease-out;
+    }
+    .service-expanded.active { display: block; }
+    .service-expanded h4 { font-size: 0.875rem; font-weight: 600; color: var(--secondary); margin-bottom: 0.75rem; }
+    .service-expanded ul { list-style: none; margin-bottom: 1rem; }
+    .service-expanded li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--foreground);
+      margin-bottom: 0.5rem;
+    }
+    .service-expanded li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+    .service-availability {
+      background: var(--muted);
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+    .service-availability strong { color: var(--secondary); }
+    .service-toggle {
+      width: 100%;
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .service-toggle svg { width: 16px; height: 16px; transition: transform 0.3s; }
+    .service-toggle.expanded svg { transform: rotate(180deg); }
+    
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .testimonial-card {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      position: relative;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.5s;
+    }
+    .testimonial-card.visible { opacity: 1; transform: scale(1); }
+    .quote-icon {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 32px;
+      height: 32px;
+      color: rgba(46, 139, 130, 0.2);
+    }
+    .stars { display: flex; gap: 4px; margin-bottom: 1rem; }
+    .stars svg { width: 20px; height: 20px; fill: var(--gold); color: var(--gold); }
+    .testimonial-card blockquote {
+      font-style: italic;
+      color: var(--foreground);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      background: rgba(46, 139, 130, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--primary);
+    }
+    .author-info h4 { font-size: 1rem; color: var(--secondary); font-weight: 600; }
+    .author-info p { font-size: 0.875rem; color: var(--muted-foreground); }
+    
+    .testimonial-form-container { margin-top: 3rem; text-align: center; }
+    .testimonial-form {
+      display: none;
+      max-width: 560px;
+      margin: 0 auto;
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      text-align: left;
+      animation: fadeIn 0.3s ease-out;
+    }
+    .testimonial-form.active { display: block; }
+    .testimonial-form h3 { font-size: 1.25rem; color: var(--secondary); margin-bottom: 1rem; text-align: center; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.875rem; font-weight: 500; color: var(--secondary); margin-bottom: 0.5rem; }
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--input);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--background);
+      color: var(--foreground);
+      transition: all 0.2s;
+    }
+    .form-input:focus { outline: none; border-color: var(--ring); box-shadow: 0 0 0 3px rgba(46, 139, 130, 0.1); }
+    .form-textarea { resize: none; min-height: 100px; }
+    .rating-selector { display: flex; gap: 0.5rem; }
+    .rating-selector button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .rating-selector svg { width: 32px; height: 32px; color: var(--muted-foreground); transition: all 0.2s; }
+    .rating-selector svg.active { fill: var(--gold); color: var(--gold); }
+    .form-actions { display: flex; gap: 0.75rem; margin-top: 1rem; }
+    .form-actions .btn { flex: 1; }
+    
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    @media (max-width: 992px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-info h3 { font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(46, 139, 130, 0.1);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 24px; height: 24px; color: var(--primary); }
+    .contact-item h4 { font-size: 1rem; font-weight: 600; color: var(--secondary); }
+    .contact-item p, .contact-item a { color: var(--muted-foreground); text-decoration: none; transition: color 0.2s; }
+    .contact-item a:hover { color: var(--primary); }
+    
+    .booking-form { display: flex; flex-direction: column; gap: 1rem; }
+    .booking-form .form-row { margin-bottom: 0; }
+    .booking-form select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--input);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--background);
+      color: var(--foreground);
+      cursor: pointer;
+    }
+    .booking-form select:focus { outline: none; border-color: var(--ring); box-shadow: 0 0 0 3px rgba(46, 139, 130, 0.1); }
+    .booking-form .btn { padding: 1rem; font-size: 1rem; }
+    .booking-form .form-note { font-size: 0.75rem; color: var(--muted-foreground); text-align: center; }
+    
+    /* Footer */
+    .footer { background: var(--secondary); color: var(--secondary-foreground); padding: 3rem 0 1.5rem; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 576px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-logo { height: 64px; filter: brightness(0) invert(1); opacity: 0.9; margin-bottom: 1rem; }
+    .footer-desc { color: rgba(255,255,255,0.8); font-size: 0.875rem; line-height: 1.7; }
+    .footer h4 { color: var(--gold); font-size: 1.125rem; margin-bottom: 1rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-services { list-style: none; }
+    .footer-services li { color: rgba(255,255,255,0.8); font-size: 0.875rem; margin-bottom: 0.5rem; }
+    .footer-contact { color: rgba(255,255,255,0.8); font-size: 0.875rem; }
+    .footer-contact a { color: inherit; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; transition: color 0.2s; }
+    .footer-contact a:hover { color: var(--gold); }
+    .footer-contact a.whatsapp:hover { color: #25D366; }
+    .footer-contact svg { width: 16px; height: 16px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p { color: rgba(255,255,255,0.6); font-size: 0.875rem; }
+    .footer-bottom .love { display: flex; align-items: center; gap: 0.25rem; }
+    .footer-bottom .love svg { width: 16px; height: 16px; fill: var(--gold); color: var(--gold); }
+    
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 100;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s;
+      animation: scaleIn 0.5s ease-out 1s both;
+    }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5); }
+    .whatsapp-btn svg { width: 28px; height: 28px; color: white; position: relative; z-index: 2; }
+    .whatsapp-pulse {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: rgba(37, 211, 102, 0.4);
+      animation: pulse 2s infinite;
+    }
+    @media (min-width: 768px) { .whatsapp-btn { width: 64px; height: 64px; } .whatsapp-btn svg { width: 32px; height: 32px; } }
+    
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      right: 24px;
+      z-index: 200;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      display: none;
+      animation: slideIn 0.3s ease-out;
+    }
+    .toast.success { border-left: 4px solid #22c55e; }
+    .toast.error { border-left: 4px solid var(--destructive); }
+    .toast.show { display: block; }
+    .toast p { font-size: 0.875rem; color: var(--foreground); }
+    
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.3); opacity: 0; }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    /* Scroll Animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+    .stagger-6 { transition-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#">
+        <img src="https://siwanhealthcareservices.in/wp-content/uploads/2026/01/LOGO.png" alt="Siwan Healthcare Services" class="logo">
+      </a>
+      <nav class="nav">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="#contact" class="btn btn-primary" style="margin-left: 1rem;">Book Appointment</a>
+      </nav>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <svg id="close-icon" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="#" onclick="toggleMobileMenu()">Home</a>
+      <a href="#services" onclick="toggleMobileMenu()">Services</a>
+      <a href="#about" onclick="toggleMobileMenu()">About Us</a>
+      <a href="#testimonials" onclick="toggleMobileMenu()">Testimonials</a>
+      <a href="#contact" class="btn btn-primary" onclick="toggleMobileMenu()">Book Appointment</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Compassionate Care, <span>Right at Your Doorstep</span></h1>
+        <p>Siwan Healthcare Services provides professional, personalized home healthcare solutions for individuals and families across Bihar. Your health, our priority.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-hero">Get Started Today</a>
+          <a href="#services" class="btn btn-hero-outline">Our Services</a>
+          <a href="#contact" class="btn btn-hero-accent">Contact Us</a>
+        </div>
+      </div>
+      <svg class="hero-wave" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 50L60 45.8C120 41.7 240 33.3 360 37.5C480 41.7 600 58.3 720 62.5C840 66.7 960 58.3 1080 50C1200 41.7 1320 33.3 1380 29.2L1440 25V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0V50Z"/>
+      </svg>
+    </section>
+
+    <!-- Features Section -->
+    <section id="about" class="section section-muted">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">Why Choose Us</span>
+          <h2 class="section-title">Your Trusted Healthcare Partner</h2>
+          <p class="section-desc">We combine professional expertise with heartfelt compassion to deliver healthcare services that make a real difference in your life.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card animate-on-scroll stagger-1">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <h3>Compassionate Care</h3>
+            <p>Our trained professionals provide warm, empathetic care tailored to each patient's unique needs.</p>
+          </div>
+          <div class="feature-card animate-on-scroll stagger-2">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+            </div>
+            <h3>Certified Professionals</h3>
+            <p>All caregivers are thoroughly vetted, trained, and certified to provide quality healthcare.</p>
+          </div>
+          <div class="feature-card animate-on-scroll stagger-3">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>24/7 Availability</h3>
+            <p>Round-the-clock support ensuring you have access to care whenever you need it.</p>
+          </div>
+          <div class="feature-card animate-on-scroll stagger-4">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Family-Centered Approach</h3>
+            <p>We work closely with families to ensure comprehensive care coordination.</p>
+          </div>
+          <div class="feature-card animate-on-scroll stagger-5">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+            </div>
+            <h3>Quality Assurance</h3>
+            <p>Regular quality checks and feedback systems to maintain excellent service standards.</p>
+          </div>
+          <div class="feature-card animate-on-scroll stagger-6">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h3>Easy Communication</h3>
+            <p>Direct line to care coordinators for updates, concerns, or schedule changes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">Our Services</span>
+          <h2 class="section-title">Comprehensive Healthcare Solutions</h2>
+          <p class="section-desc">From nursing care to specialized treatments, we offer a full range of home healthcare services tailored to your needs.</p>
+        </div>
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <div class="service-card animate-on-scroll stagger-1">
+            <div class="service-header">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+              </div>
+              <h3>General Nursing Care</h3>
+            </div>
+            <p>Professional nursing services including wound care, injections, IV therapy, and vital monitoring.</p>
+            <ul class="service-features">
+              <li>Wound dressing</li>
+              <li>Medication management</li>
+              <li>Health monitoring</li>
+            </ul>
+            <div class="service-expanded" id="service-1">
+              <h4>Additional Services:</h4>
+              <ul>
+                <li>IV therapy & injections</li>
+                <li>Vital signs monitoring</li>
+                <li>Blood sugar testing</li>
+                <li>Catheter care & management</li>
+                <li>Oxygen therapy support</li>
+                <li>Post-hospitalization care</li>
+              </ul>
+              <div class="service-availability">
+                <strong>Availability:</strong> Available 24/7 for emergency and scheduled visits
+              </div>
+            </div>
+            <button class="btn btn-outline service-toggle" onclick="toggleService(1, this)">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+          </div>
+          
+          <!-- Service 2 -->
+          <div class="service-card animate-on-scroll stagger-2">
+            <div class="service-header">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <h3>Home Health Aide</h3>
+            </div>
+            <p>Personal care assistance with daily activities to maintain comfort and dignity at home.</p>
+            <ul class="service-features">
+              <li>Bathing & hygiene</li>
+              <li>Mobility assistance</li>
+              <li>Meal preparation</li>
+            </ul>
+            <div class="service-expanded" id="service-2">
+              <h4>Additional Services:</h4>
+              <ul>
+                <li>Light housekeeping</li>
+                <li>Companionship & emotional support</li>
+                <li>Errand assistance</li>
+                <li>Grocery shopping</li>
+                <li>Laundry & clothing care</li>
+                <li>Transportation to appointments</li>
+              </ul>
+              <div class="service-availability">
+                <strong>Availability:</strong> Flexible scheduling - hourly, daily, or live-in options
+              </div>
+            </div>
+            <button class="btn btn-outline service-toggle" onclick="toggleService(2, this)">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+          </div>
+          
+          <!-- Service 3 -->
+          <div class="service-card animate-on-scroll stagger-3">
+            <div class="service-header">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></svg>
+              </div>
+              <h3>Mother & Baby Care</h3>
+            </div>
+            <p>Specialized post-natal care for new mothers and newborn babies in the comfort of your home.</p>
+            <ul class="service-features">
+              <li>Newborn care</li>
+              <li>Breastfeeding support</li>
+              <li>Mother's recovery</li>
+            </ul>
+            <div class="service-expanded" id="service-3">
+              <h4>Additional Services:</h4>
+              <ul>
+                <li>Umbilical cord care & bathing</li>
+                <li>Sleep training guidance</li>
+                <li>Postpartum wellness monitoring</li>
+                <li>Baby massage techniques</li>
+                <li>Feeding schedule management</li>
+                <li>Mother's nutrition counseling</li>
+              </ul>
+              <div class="service-availability">
+                <strong>Availability:</strong> Day and night shifts available for first 40 days
+              </div>
+            </div>
+            <button class="btn btn-outline service-toggle" onclick="toggleService(3, this)">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+          </div>
+          
+          <!-- Service 4 -->
+          <div class="service-card animate-on-scroll stagger-4">
+            <div class="service-header">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>
+              </div>
+              <h3>Dementia & Elderly Care</h3>
+            </div>
+            <p>Compassionate care for seniors with dementia, Alzheimer's, or age-related conditions.</p>
+            <ul class="service-features">
+              <li>Memory care</li>
+              <li>Safety supervision</li>
+              <li>Companionship</li>
+            </ul>
+            <div class="service-expanded" id="service-4">
+              <h4>Additional Services:</h4>
+              <ul>
+                <li>Daily routine assistance</li>
+                <li>Fall prevention strategies</li>
+                <li>Medication reminders</li>
+                <li>Cognitive stimulation activities</li>
+                <li>Wandering prevention</li>
+                <li>Family respite care</li>
+              </ul>
+              <div class="service-availability">
+                <strong>Availability:</strong> 24-hour care options with trained dementia specialists
+              </div>
+            </div>
+            <button class="btn btn-outline service-toggle" onclick="toggleService(4, this)">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+          </div>
+          
+          <!-- Service 5 -->
+          <div class="service-card animate-on-scroll stagger-5">
+            <div class="service-header">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+              </div>
+              <h3>Post-Surgery Care</h3>
+            </div>
+            <p>Recovery support after hospital discharge to ensure smooth healing and rehabilitation.</p>
+            <ul class="service-features">
+              <li>Wound management</li>
+              <li>Physical therapy</li>
+              <li>Recovery monitoring</li>
+            </ul>
+            <div class="service-expanded" id="service-5">
+              <h4>Additional Services:</h4>
+              <ul>
+                <li>Pain management support</li>
+                <li>Mobility exercises</li>
+                <li>Nutrition guidance</li>
+                <li>Surgical site monitoring</li>
+                <li>Medication administration</li>
+                <li>Follow-up appointment coordination</li>
+              </ul>
+              <div class="service-availability">
+                <strong>Availability:</strong> Short-term and extended recovery programs available
+              </div>
+            </div>
+            <button class="btn btn-outline service-toggle" onclick="toggleService(5, this)">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+          </div>
+          
+          <!-- Service 6 -->
+          <div class="service-card animate-on-scroll stagger-6">
+            <div class="service-header">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
+              </div>
+              <h3>Chronic Disease Management</h3>
+            </div>
+            <p>Ongoing care for diabetes, hypertension, heart disease, and other chronic conditions.</p>
+            <ul class="service-features">
+              <li>Regular check-ups</li>
+              <li>Medication reminders</li>
+              <li>Diet guidance</li>
+            </ul>
+            <div class="service-expanded" id="service-6">
+              <h4>Additional Services:</h4>
+              <ul>
+                <li>Blood pressure monitoring</li>
+                <li>Diabetes care & insulin management</li>
+                <li>Lifestyle counseling</li>
+                <li>Exercise programs</li>
+                <li>Health education</li>
+                <li>Emergency response planning</li>
+              </ul>
+              <div class="service-availability">
+                <strong>Availability:</strong> Weekly, bi-weekly, or monthly care plans
+              </div>
+            </div>
+            <button class="btn btn-outline service-toggle" onclick="toggleService(6, this)">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section section-muted">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">Testimonials</span>
+          <h2 class="section-title">What Our Clients Say</h2>
+          <p class="section-desc">Real stories from families who trusted us with their healthcare needs.</p>
+        </div>
+        <div class="testimonials-grid" id="testimonials-grid">
+          <!-- Testimonials will be rendered by JavaScript -->
+        </div>
+        <div class="testimonial-form-container">
+          <button class="btn btn-outline" id="share-btn" onclick="toggleTestimonialForm()" style="border-color: var(--primary); color: var(--primary);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            Share Your Experience
+          </button>
+          <div class="testimonial-form" id="testimonial-form">
+            <h3>Share Your Testimonial</h3>
+            <form onsubmit="submitTestimonial(event)">
+              <div class="form-row">
+                <input type="text" class="form-input" placeholder="Your Name *" id="t-name" required>
+                <input type="text" class="form-input" placeholder="Your Role (e.g., Patient, Family)" id="t-role">
+              </div>
+              <div class="form-group">
+                <label>Your Rating</label>
+                <div class="rating-selector" id="rating-selector">
+                  <button type="button" onclick="setRating(1)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+                  <button type="button" onclick="setRating(2)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+                  <button type="button" onclick="setRating(3)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+                  <button type="button" onclick="setRating(4)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+                  <button type="button" onclick="setRating(5)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-input form-textarea" placeholder="Share your experience with Siwan Healthcare Services... *" id="t-content" required></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Submit Testimonial</button>
+                <button type="button" class="btn btn-outline" onclick="toggleTestimonialForm()">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">Book an Appointment</span>
+          <h2 class="section-title">Schedule Your Care Today</h2>
+          <p class="section-desc">Ready to experience quality home healthcare? Fill out the form below and we'll get back to you within 24 hours.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info animate-on-scroll">
+            <h3>Contact Information</h3>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h4>Address</h4>
+                <p>Siwan, Haryana, INDIA (136033)</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <h4>Phone</h4>
+                <a href="tel:+919896227706">+91 98962 27706</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+              </div>
+              <div>
+                <h4>WhatsApp</h4>
+                <a href="https://wa.me/919896227706" target="_blank" rel="noopener noreferrer">Chat with us</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <h4>Email</h4>
+                <a href="mailto:support@siwanhealthcareservices.in">support@siwanhealthcareservices.in</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <h4>Hours</h4>
+                <p>24/7 Emergency Care Available</p>
+              </div>
+            </div>
+          </div>
+          <form class="booking-form animate-on-scroll" onsubmit="submitBooking(event)">
+            <input type="text" class="form-input" placeholder="Your Full Name *" id="b-name" required>
+            <div class="form-row">
+              <input type="tel" class="form-input" placeholder="Phone Number *" id="b-phone" required>
+              <input type="email" class="form-input" placeholder="Email Address *" id="b-email" required>
+            </div>
+            <div class="form-row">
+              <select id="b-service" required>
+                <option value="">Select a Service *</option>
+                <option value="General Nursing Care">General Nursing Care</option>
+                <option value="Home Health Aide">Home Health Aide</option>
+                <option value="Mother & Baby Care">Mother & Baby Care</option>
+                <option value="Dementia & Elderly Care">Dementia & Elderly Care</option>
+                <option value="Post-Surgery Care">Post-Surgery Care</option>
+                <option value="Chronic Disease Management">Chronic Disease Management</option>
+                <option value="Other">Other</option>
+              </select>
+              <input type="date" class="form-input" id="b-date">
+            </div>
+            <textarea class="form-input form-textarea" placeholder="Tell us about your healthcare needs..." id="b-message" required></textarea>
+            <button type="submit" class="btn btn-primary">Book Appointment</button>
+            <p class="form-note">By submitting this form, your email client will open with the booking details. Send the email to complete your request.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="https://siwanhealthcareservices.in/wp-content/uploads/2026/01/LOGO.png" alt="Siwan Healthcare Services" class="footer-logo">
+          <p class="footer-desc">Siwan Healthcare Services provides compassionate, professional home healthcare services to individuals and families. Serving since 2024.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Our Services</h4>
+          <ul class="footer-services">
+            <li>General Nursing Care</li>
+            <li>Home Health Aide</li>
+            <li>Mother & Baby Care</li>
+            <li>Dementia Care</li>
+            <li>Post-Surgery Care</li>
+            <li>Chronic Disease Management</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <div class="footer-contact">
+            <p style="margin-bottom: 0.75rem;">Siwan, Haryana, INDIA (136033)</p>
+            <a href="tel:+919896227706">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +91 98962 27706
+            </a>
+            <a href="https://wa.me/919896227706" target="_blank" rel="noopener noreferrer" class="whatsapp">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+              WhatsApp Us
+            </a>
+            <a href="mailto:support@siwanhealthcareservices.in">support@siwanhealthcareservices.in</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024-<span id="current-year"></span> Siwan Healthcare Services. All rights reserved.</p>
+        <p class="love">Made with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> for better healthcare</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <button class="whatsapp-btn" onclick="openWhatsApp()" aria-label="Chat on WhatsApp">
+    <span class="whatsapp-pulse"></span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </button>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <p id="toast-message"></p>
+  </div>
+
+  <script>
+    // Initial testimonials data
+    const initialTestimonials = [
+      { name: "Rajesh Kumar", role: "Son of Patient", content: "The care provided to my elderly mother was exceptional. The nurses were not just professional but treated her like family. Highly recommended!", rating: 5 },
+      { name: "Priya Singh", role: "New Mother", content: "After my delivery, SHS provided wonderful post-natal care. The caregiver was experienced, helpful, and made my recovery so much easier.", rating: 5 },
+      { name: "Dr. Amit Verma", role: "Referring Physician", content: "I regularly refer my patients to Siwan Healthcare Services for home care. Their professionalism and quality of care are consistently excellent.", rating: 5 },
+      { name: "Sunita Devi", role: "Patient", content: "Managing my diabetes at home has become so much easier with SHS. Regular monitoring and diet guidance have improved my health significantly.", rating: 5 }
+    ];
+
+    // Load testimonials from localStorage or use initial
+    let testimonials = JSON.parse(localStorage.getItem('shs_testimonials')) || initialTestimonials;
+    let currentRating = 5;
+
+    // Render testimonials
+    function renderTestimonials() {
+      const grid = document.getElementById('testimonials-grid');
+      grid.innerHTML = testimonials.map((t, i) => `
+        <div class="testimonial-card animate-on-scroll stagger-${(i % 4) + 1}">
+          <svg class="quote-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+          <div class="stars">${'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'.repeat(t.rating)}</div>
+          <blockquote>"${t.content}"</blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">${t.name.charAt(0)}</div>
+            <div class="author-info">
+              <h4>${t.name}</h4>
+              <p>${t.role}</p>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      
+      // Re-observe for animations
+      setTimeout(initScrollAnimations, 100);
+    }
+
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+      const nav = document.getElementById('mobile-nav');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      nav.classList.toggle('active');
+      if (nav.classList.contains('active')) {
+        menuIcon.style.display = 'none';
+        closeIcon.style.display = 'block';
+      } else {
+        menuIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+      }
+    }
+
+    // Toggle service expanded content
+    function toggleService(id, btn) {
+      const expanded = document.getElementById('service-' + id);
+      expanded.classList.toggle('active');
+      btn.classList.toggle('expanded');
+      btn.innerHTML = expanded.classList.contains('active') 
+        ? 'Show Less <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>'
+        : 'Learn More <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
+    }
+
+    // Toggle testimonial form
+    function toggleTestimonialForm() {
+      const form = document.getElementById('testimonial-form');
+      const btn = document.getElementById('share-btn');
+      form.classList.toggle('active');
+      btn.style.display = form.classList.contains('active') ? 'none' : 'inline-flex';
+    }
+
+    // Set rating
+    function setRating(rating) {
+      currentRating = rating;
+      const stars = document.querySelectorAll('#rating-selector svg');
+      stars.forEach((star, i) => {
+        if (i < rating) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+    }
+
+    // Submit testimonial
+    function submitTestimonial(e) {
+      e.preventDefault();
+      const name = document.getElementById('t-name').value;
+      const role = document.getElementById('t-role').value || 'Customer';
+      const content = document.getElementById('t-content').value;
+      
+      if (!name || !content) {
+        showToast('Please fill in your name and testimonial', 'error');
+        return;
+      }
+
+      testimonials.push({ name, role, content, rating: currentRating });
+      localStorage.setItem('shs_testimonials', JSON.stringify(testimonials));
+      
+      renderTestimonials();
+      toggleTestimonialForm();
+      
+      document.getElementById('t-name').value = '';
+      document.getElementById('t-role').value = '';
+      document.getElementById('t-content').value = '';
+      setRating(5);
+      
+      showToast('Thank you for sharing your experience! Your testimonial has been added.', 'success');
+    }
+
+    // Submit booking
+    function submitBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('b-name').value;
+      const phone = document.getElementById('b-phone').value;
+      const email = document.getElementById('b-email').value;
+      const service = document.getElementById('b-service').value;
+      const date = document.getElementById('b-date').value;
+      const message = document.getElementById('b-message').value;
+
+      const subject = encodeURIComponent(`Booking Request: ${service || 'Healthcare Service'}`);
+      const body = encodeURIComponent(
+        `New Booking Request\n\n` +
+        `Name: ${name}\n` +
+        `Phone: ${phone}\n` +
+        `Email: ${email}\n` +
+        `Service: ${service}\n` +
+        `Preferred Date: ${date || 'Not specified'}\n\n` +
+        `Message:\n${message}`
+      );
+
+      window.location.href = `mailto:support@siwanhealthcareservices.in?subject=${subject}&body=${body}`;
+      showToast('Your email client has been opened. Please send the email to complete your booking request.', 'success');
+    }
+
+    // Open WhatsApp
+    function openWhatsApp() {
+      const message = encodeURIComponent("Hello! I'm interested in your healthcare services. Could you please provide more information?");
+      window.open(`https://wa.me/919896227706?text=${message}`, '_blank', 'noopener,noreferrer');
+    }
+
+    // Show toast
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toast-message');
+      toastMessage.textContent = message;
+      toast.className = 'toast show ' + type;
+      setTimeout(() => { toast.classList.remove('show'); }, 4000);
+    }
+
+    // Scroll animations
+    function initScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.animate-on-scroll, .feature-card, .service-card, .testimonial-card').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // Set current year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Set min date for booking
+    document.getElementById('b-date').min = new Date().toISOString().split('T')[0];
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      renderTestimonials();
+      initScrollAnimations();
+    });
+  </script>
+</body>
+</html>
