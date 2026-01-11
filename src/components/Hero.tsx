@@ -35,7 +35,7 @@ const Hero = () => {
             className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto"
           >
             Siwan Healthcare Services provides professional, personalized home
-            healthcare solutions for individuals and families across Bihar. Your
+            healthcare solutions for individuals and families across North-West India. Your
             health, our priority.
           </motion.p>
 
