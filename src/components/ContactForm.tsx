@@ -10,7 +10,8 @@ const contactInfo = [
     icon: MapPin,
     title: "Address",
     content: "Siwan, Haryana, INDIA (136033)",
-    href: null,
+    href: "https://www.google.com/maps?q=29.88875,76.35026",
+    geoHref: "geo:29.88875,76.35026?q=29.88875,76.35026",
   },
   {
     icon: Phone,
@@ -37,6 +38,39 @@ const contactInfo = [
     href: null,
   },
 ];
+
+const handleLocationClick = (e: React.MouseEvent) => {
+  e.preventDefault();
+  const lat = 29.88875;
+  const lng = 76.35026;
+  
+  // Try geo URI first (works on mobile devices)
+  const geoUri = `geo:${lat},${lng}?q=${lat},${lng}`;
+  
+  // Fallback URLs for different platforms
+  const googleMapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+  const appleMapsUrl = `https://maps.apple.com/?q=${lat},${lng}`;
+  
+  // Detect platform and use appropriate URL
+  const userAgent = navigator.userAgent.toLowerCase();
+  const isIOS = /iphone|ipad|ipod/.test(userAgent);
+  const isAndroid = /android/.test(userAgent);
+  
+  if (isIOS) {
+    // Try Apple Maps first on iOS
+    window.location.href = appleMapsUrl;
+  } else if (isAndroid) {
+    // Try geo URI on Android (opens in default maps app)
+    window.location.href = geoUri;
+    // Fallback to Google Maps after a short delay
+    setTimeout(() => {
+      window.open(googleMapsUrl, '_blank');
+    }, 500);
+  } else {
+    // Desktop - open Google Maps
+    window.open(googleMapsUrl, '_blank');
+  }
+};
 
 const serviceOptions = [
   "General Nursing Care",
@@ -133,12 +167,39 @@ const ContactForm = () => {
             <div className="space-y-6">
               {contactInfo.map((info) => (
                 <div key={info.title} className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <info.icon className="w-6 h-6 text-primary" />
-                  </div>
+                  {info.title === "Address" ? (
+                    <button
+                      onClick={handleLocationClick}
+                      className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 hover:bg-primary/20 transition-colors cursor-pointer"
+                      aria-label="Open location in maps"
+                    >
+                      <info.icon className="w-6 h-6 text-primary" />
+                    </button>
+                  ) : info.href ? (
+                    <a
+                      href={info.href}
+                      target={info.href.startsWith("https") ? "_blank" : undefined}
+                      rel={info.href.startsWith("https") ? "noopener noreferrer" : undefined}
+                      className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 hover:bg-primary/20 transition-colors cursor-pointer"
+                      aria-label={info.title}
+                    >
+                      <info.icon className="w-6 h-6 text-primary" />
+                    </a>
+                  ) : (
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <info.icon className="w-6 h-6 text-primary" />
+                    </div>
+                  )}
                   <div>
                     <h4 className="font-semibold text-secondary">{info.title}</h4>
-                    {info.href ? (
+                    {info.title === "Address" ? (
+                      <button
+                        onClick={handleLocationClick}
+                        className="text-muted-foreground hover:text-primary transition-colors text-left cursor-pointer"
+                      >
+                        {info.content}
+                      </button>
+                    ) : info.href ? (
                       <a
                         href={info.href}
                         target={info.href.startsWith("https") ? "_blank" : undefined}
