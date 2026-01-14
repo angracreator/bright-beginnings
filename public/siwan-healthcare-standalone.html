@@ -499,26 +499,31 @@
     }
     .contact-icon:hover { background: rgba(46, 139, 130, 0.2); }
     .contact-icon svg { width: 24px; height: 24px; color: var(--primary); }
-    .contact-item h4 { font-size: 1rem; font-weight: 600; color: var(--secondary); }
-    .contact-item p, .contact-item a, .contact-item button { 
-      color: var(--muted-foreground); 
-      text-decoration: none; 
-      transition: color 0.2s ease; 
-      background: none; 
-      border: none; 
-      padding: 0; 
-      font-size: inherit; 
-      font-family: inherit; 
-      cursor: pointer; 
-      text-align: left; 
+    .contact-item h4 { font-size: 1rem; font-weight: 600; color: var(--secondary); margin-bottom: 0.25rem; }
+    .contact-item p, .contact-item a, .contact-item button {
+      font-size: 0.9375rem;
+      color: var(--muted-foreground);
+      text-decoration: none;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: inherit;
+      text-align: left;
     }
     .contact-item a:hover, .contact-item button:hover { color: var(--primary); }
     
-    .booking-form { display: flex; flex-direction: column; gap: 1rem; }
+    .booking-form {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+    .booking-form .form-input { margin-bottom: 1rem; }
     .booking-form .form-row { margin-bottom: 0; }
+    .booking-form .form-row .form-input { margin-bottom: 1rem; }
     .booking-form select {
       width: 100%;
-      height: 48px;
       padding: 0.75rem 1rem;
       border: 1px solid var(--input);
       border-radius: var(--radius);
@@ -526,23 +531,26 @@
       font-family: inherit;
       background: var(--background);
       color: var(--foreground);
+      margin-bottom: 1rem;
       cursor: pointer;
-      transition: all 0.2s ease;
     }
     .booking-form select:focus { outline: none; border-color: var(--ring); box-shadow: 0 0 0 3px rgba(46, 139, 130, 0.1); }
-    .booking-form .btn { padding: 1rem; font-size: 1rem; }
-    .booking-form .form-note { font-size: 0.75rem; color: var(--muted-foreground); text-align: center; }
+    .booking-form .btn-primary { width: 100%; padding: 1rem; font-size: 1rem; }
+    .booking-form .form-note { font-size: 0.75rem; color: var(--muted-foreground); text-align: center; margin-top: 1rem; }
     
     /* Footer */
-    .footer { background: var(--secondary); color: var(--secondary-foreground); padding: 3rem 0 1.5rem; }
+    .footer {
+      background: var(--secondary);
+      color: var(--secondary-foreground);
+      padding: 3rem 0 0;
+    }
     .footer-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 2rem;
-      margin-bottom: 2.5rem;
     }
-    @media (min-width: 576px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (min-width: 1024px) {
       .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
@@ -553,37 +561,46 @@
     .footer h4 { color: var(--gold); font-size: 1.125rem; margin-bottom: 1rem; }
     .footer-links { list-style: none; }
     .footer-links li { margin-bottom: 0.5rem; }
-    .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.875rem; transition: color 0.2s ease; }
+    .footer-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s ease;
+    }
     .footer-links a:hover { color: var(--gold); }
     .footer-services { list-style: none; }
     .footer-services li { color: rgba(255,255,255,0.8); font-size: 0.875rem; margin-bottom: 0.5rem; }
-    .footer-contact { color: rgba(255,255,255,0.8); font-size: 0.875rem; }
-    .footer-contact a, .footer-contact button { 
-      color: inherit; 
-      text-decoration: none; 
-      display: flex; 
-      align-items: center; 
-      gap: 0.5rem; 
-      margin-bottom: 0.75rem; 
-      transition: color 0.2s ease; 
-      background: none; 
-      border: none; 
-      padding: 0; 
-      font-size: inherit; 
-      font-family: inherit; 
-      cursor: pointer; 
+    .footer-contact { display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-contact a, .footer-contact button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s ease;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: inherit;
+      text-align: left;
     }
     .footer-contact a:hover, .footer-contact button:hover { color: var(--gold); }
-    .footer-contact a.whatsapp:hover { color: #25D366; }
+    .footer-contact a.whatsapp:hover { color: #25d366; }
     .footer-contact svg { width: 16px; height: 16px; flex-shrink: 0; }
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.2);
-      padding-top: 1.5rem;
+      margin-top: 2.5rem;
+      padding: 1.5rem 0;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
+      gap: 0.5rem;
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .footer-bottom { flex-direction: row; justify-content: space-between; }
     }
     .footer-bottom p { color: rgba(255,255,255,0.6); font-size: 0.875rem; }
     .footer-bottom .love { display: flex; align-items: center; gap: 0.25rem; }
@@ -592,56 +609,49 @@
     /* WhatsApp Button */
     .whatsapp-btn {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 100;
-      width: 56px;
-      height: 56px;
-      background: #25D366;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 60px;
+      height: 60px;
+      background: #25d366;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
       cursor: pointer;
       border: none;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 40;
       transition: all 0.3s ease;
-      animation: scaleIn 0.5s ease-out 1s both;
     }
-    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5); }
-    .whatsapp-btn:active { transform: scale(0.95); }
-    .whatsapp-btn svg { width: 28px; height: 28px; color: white; position: relative; z-index: 2; }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
+    .whatsapp-btn svg { width: 32px; height: 32px; color: white; }
     .whatsapp-pulse {
       position: absolute;
       inset: 0;
       border-radius: 50%;
-      background: rgba(37, 211, 102, 0.4);
+      background: #25d366;
       animation: pulse 2s infinite;
     }
-    @media (min-width: 768px) { 
-      .whatsapp-btn { width: 64px; height: 64px; } 
-      .whatsapp-btn svg { width: 32px; height: 32px; } 
-    }
     
-    /* Toast Notification */
+    /* Toast */
     .toast {
       position: fixed;
-      bottom: 100px;
-      right: 24px;
-      z-index: 200;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--secondary);
+      color: var(--secondary-foreground);
       padding: 1rem 1.5rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      display: none;
-      animation: slideIn 0.3s ease-out;
-      max-width: 320px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 100;
+      opacity: 0;
+      transition: all 0.3s ease;
     }
-    .toast.success { border-left: 4px solid #22c55e; }
-    .toast.error { border-left: 4px solid var(--destructive); }
-    .toast.show { display: block; }
-    .toast p { font-size: 0.875rem; color: var(--foreground); }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .toast.success { background: var(--primary); }
+    .toast.error { background: var(--destructive); }
     
     /* Animations */
     @keyframes fadeUp {
@@ -652,33 +662,22 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.4; }
-      50% { transform: scale(1.3); opacity: 0; }
-    }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
     @keyframes slideDown {
       from { opacity: 0; transform: translateY(-10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.3); opacity: 0; }
+      100% { transform: scale(1); opacity: 0; }
+    }
     
-    /* Scroll Animations */
     .animate-on-scroll {
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.6s ease-out;
     }
-    .animate-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
     .stagger-1 { transition-delay: 0.1s; }
     .stagger-2 { transition-delay: 0.2s; }
     .stagger-3 { transition-delay: 0.3s; }
@@ -695,431 +694,431 @@
       </a>
       <nav class="nav">
         <a href="#" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
         <a href="#services" class="nav-link">Services</a>
-        <a href="#about" class="nav-link">About Us</a>
         <a href="#testimonials" class="nav-link">Testimonials</a>
-        <a href="#contact" class="btn btn-primary" style="margin-left: 1rem;">Book Appointment</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact" class="btn btn-primary">Book Appointment</a>
       </nav>
       <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
         <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-        <svg id="close-icon" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
     </div>
     <nav class="mobile-nav" id="mobile-nav">
-      <a href="#" onclick="toggleMobileMenu()">Home</a>
-      <a href="#services" onclick="toggleMobileMenu()">Services</a>
-      <a href="#about" onclick="toggleMobileMenu()">About Us</a>
-      <a href="#testimonials" onclick="toggleMobileMenu()">Testimonials</a>
-      <a href="#contact" class="btn btn-primary" onclick="toggleMobileMenu()">Book Appointment</a>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-primary">Book Appointment</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1>Compassionate Care, <span>Right at Your Doorstep</span></h1>
-        <p>Siwan Healthcare Services provides professional, personalized home healthcare solutions for individuals and families across North-West India. Your health, our priority.</p>
-        <div class="hero-buttons">
-          <a href="#contact" class="btn btn-hero">Get Started Today</a>
-          <a href="#services" class="btn btn-hero-outline">Our Services</a>
-          <a href="#contact" class="btn btn-hero-accent">Contact Us</a>
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Compassionate Care, <span>Right at Your Doorstep</span></h1>
+      <p>Siwan Healthcare Services provides professional, personalized home healthcare solutions for individuals and families across North-West India. Your health, our priority.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-hero">Get Started Today</a>
+        <a href="#services" class="btn btn-hero-outline">Our Services</a>
+        <a href="#contact" class="btn btn-hero-accent">Contact Us</a>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 50L60 45.8C120 41.7 240 33.3 360 37.5C480 41.7 600 58.3 720 62.5C840 66.7 960 58.3 1080 50C1200 41.7 1320 33.3 1380 29.2L1440 25V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0V50Z" fill="white"/>
+    </svg>
+  </section>
+
+  <section id="about" class="section section-muted">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="section-title">Your Trusted Healthcare Partner</h2>
+        <p class="section-desc">We combine professional expertise with heartfelt compassion to deliver healthcare services that make a real difference in your life.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card animate-on-scroll stagger-1">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <h3>Compassionate Care</h3>
+          <p>Our trained professionals provide warm, empathetic care tailored to each patient's unique needs.</p>
+        </div>
+        <div class="feature-card animate-on-scroll stagger-2">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+          </div>
+          <h3>Certified Professionals</h3>
+          <p>All caregivers are thoroughly vetted, trained, and certified to provide quality healthcare.</p>
+        </div>
+        <div class="feature-card animate-on-scroll stagger-3">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>24/7 Availability</h3>
+          <p>Round-the-clock support ensuring you have access to care whenever you need it.</p>
+        </div>
+        <div class="feature-card animate-on-scroll stagger-4">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Family-Centered Approach</h3>
+          <p>We work closely with families to ensure comprehensive care coordination.</p>
+        </div>
+        <div class="feature-card animate-on-scroll stagger-5">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+          </div>
+          <h3>Quality Assurance</h3>
+          <p>Regular quality checks and feedback systems to maintain excellent service standards.</p>
+        </div>
+        <div class="feature-card animate-on-scroll stagger-6">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3>Easy Communication</h3>
+          <p>Direct line to care coordinators for updates, concerns, or schedule changes.</p>
         </div>
       </div>
-      <svg class="hero-wave" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 50L60 45.8C120 41.7 240 33.3 360 37.5C480 41.7 600 58.3 720 62.5C840 66.7 960 58.3 1080 50C1200 41.7 1320 33.3 1380 29.2L1440 25V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0V50Z"/>
-      </svg>
-    </section>
+    </div>
+  </section>
 
-    <section id="about" class="section section-muted">
-      <div class="container">
-        <div class="section-header animate-on-scroll">
-          <span class="section-label">Why Choose Us</span>
-          <h2 class="section-title">Your Trusted Healthcare Partner</h2>
-          <p class="section-desc">We combine professional expertise with heartfelt compassion to deliver healthcare services that make a real difference in your life.</p>
-        </div>
-        <div class="features-grid">
-          <div class="feature-card animate-on-scroll stagger-1">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-            </div>
-            <h3>Compassionate Care</h3>
-            <p>Our trained professionals provide warm, empathetic care tailored to each patient's unique needs.</p>
-          </div>
-          <div class="feature-card animate-on-scroll stagger-2">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
-            </div>
-            <h3>Certified Professionals</h3>
-            <p>All caregivers are thoroughly vetted, trained, and certified to provide quality healthcare.</p>
-          </div>
-          <div class="feature-card animate-on-scroll stagger-3">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <h3>24/7 Availability</h3>
-            <p>Round-the-clock support ensuring you have access to care whenever you need it.</p>
-          </div>
-          <div class="feature-card animate-on-scroll stagger-4">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3>Family-Centered Approach</h3>
-            <p>We work closely with families to ensure comprehensive care coordination.</p>
-          </div>
-          <div class="feature-card animate-on-scroll stagger-5">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
-            </div>
-            <h3>Quality Assurance</h3>
-            <p>Regular quality checks and feedback systems to maintain excellent service standards.</p>
-          </div>
-          <div class="feature-card animate-on-scroll stagger-6">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <h3>Easy Communication</h3>
-            <p>Direct line to care coordinators for updates, concerns, or schedule changes.</p>
-          </div>
-        </div>
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Our Services</span>
+        <h2 class="section-title">Comprehensive Healthcare Solutions</h2>
+        <p class="section-desc">From nursing care to specialized treatments, we offer a full range of home healthcare services tailored to your needs.</p>
       </div>
-    </section>
-
-    <section id="services" class="section">
-      <div class="container">
-        <div class="section-header animate-on-scroll">
-          <span class="section-label">Our Services</span>
-          <h2 class="section-title">Comprehensive Healthcare Solutions</h2>
-          <p class="section-desc">From nursing care to specialized treatments, we offer a full range of home healthcare services tailored to your needs.</p>
-        </div>
-        <div class="services-grid">
-          <div class="service-card animate-on-scroll stagger-1">
-            <div class="service-header">
-              <div class="service-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
-              </div>
-              <h3>General Nursing Care</h3>
+      <div class="services-grid">
+        <div class="service-card animate-on-scroll stagger-1">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
             </div>
-            <p>Professional nursing services including wound care, injections, IV therapy, and vital monitoring.</p>
-            <ul class="service-features">
-              <li>Wound dressing</li>
-              <li>Medication management</li>
-              <li>Health monitoring</li>
-            </ul>
-            <div class="service-expanded" id="service-1">
-              <h4>Additional Services:</h4>
-              <ul>
-                <li>IV therapy & injections</li>
-                <li>Vital signs monitoring</li>
-                <li>Blood sugar testing</li>
-                <li>Catheter care & management</li>
-                <li>Oxygen therapy support</li>
-                <li>Post-hospitalization care</li>
-              </ul>
-              <div class="service-availability">
-                <strong>Availability:</strong> Available 24/7 for emergency and scheduled visits
-              </div>
-            </div>
-            <button class="btn btn-outline service-toggle" onclick="toggleService(1, this)">
-              Learn More
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
+            <h3>General Nursing Care</h3>
           </div>
-          
-          <div class="service-card animate-on-scroll stagger-2">
-            <div class="service-header">
-              <div class="service-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              </div>
-              <h3>Home Health Aide</h3>
-            </div>
-            <p>Personal care assistance with daily activities to maintain comfort and dignity at home.</p>
-            <ul class="service-features">
-              <li>Bathing & hygiene</li>
-              <li>Mobility assistance</li>
-              <li>Meal preparation</li>
+          <p>Professional nursing services including wound care, injections, IV therapy, and vital monitoring.</p>
+          <ul class="service-features">
+            <li>Wound dressing</li>
+            <li>Medication management</li>
+            <li>Health monitoring</li>
+          </ul>
+          <div class="service-expanded" id="service-1">
+            <h4>Additional Services:</h4>
+            <ul>
+              <li>IV therapy & injections</li>
+              <li>Vital signs monitoring</li>
+              <li>Blood sugar testing</li>
+              <li>Catheter care & management</li>
+              <li>Oxygen therapy support</li>
+              <li>Post-hospitalization care</li>
             </ul>
-            <div class="service-expanded" id="service-2">
-              <h4>Additional Services:</h4>
-              <ul>
-                <li>Light housekeeping</li>
-                <li>Companionship & emotional support</li>
-                <li>Errand assistance</li>
-                <li>Grocery shopping</li>
-                <li>Laundry & clothing care</li>
-                <li>Transportation to appointments</li>
-              </ul>
-              <div class="service-availability">
-                <strong>Availability:</strong> Flexible scheduling - hourly, daily, or live-in options
-              </div>
+            <div class="service-availability">
+              <strong>Availability:</strong> Available 24/7 for emergency and scheduled visits
             </div>
-            <button class="btn btn-outline service-toggle" onclick="toggleService(2, this)">
-              Learn More
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
           </div>
-          
-          <div class="service-card animate-on-scroll stagger-3">
-            <div class="service-header">
-              <div class="service-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></svg>
-              </div>
-              <h3>Mother & Baby Care</h3>
-            </div>
-            <p>Specialized post-natal care for new mothers and newborn babies in the comfort of your home.</p>
-            <ul class="service-features">
-              <li>Newborn care</li>
-              <li>Breastfeeding support</li>
-              <li>Mother's recovery</li>
-            </ul>
-            <div class="service-expanded" id="service-3">
-              <h4>Additional Services:</h4>
-              <ul>
-                <li>Umbilical cord care & bathing</li>
-                <li>Sleep training guidance</li>
-                <li>Postpartum wellness monitoring</li>
-                <li>Baby massage techniques</li>
-                <li>Feeding schedule management</li>
-                <li>Mother's nutrition counseling</li>
-              </ul>
-              <div class="service-availability">
-                <strong>Availability:</strong> Day and night shifts available for first 40 days
-              </div>
-            </div>
-            <button class="btn btn-outline service-toggle" onclick="toggleService(3, this)">
-              Learn More
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-          </div>
-          
-          <div class="service-card animate-on-scroll stagger-4">
-            <div class="service-header">
-              <div class="service-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>
-              </div>
-              <h3>Dementia & Elderly Care</h3>
-            </div>
-            <p>Compassionate care for seniors with dementia, Alzheimer's, or age-related conditions.</p>
-            <ul class="service-features">
-              <li>Memory care</li>
-              <li>Safety supervision</li>
-              <li>Companionship</li>
-            </ul>
-            <div class="service-expanded" id="service-4">
-              <h4>Additional Services:</h4>
-              <ul>
-                <li>Daily routine assistance</li>
-                <li>Fall prevention strategies</li>
-                <li>Medication reminders</li>
-                <li>Cognitive stimulation activities</li>
-                <li>Wandering prevention</li>
-                <li>Family respite care</li>
-              </ul>
-              <div class="service-availability">
-                <strong>Availability:</strong> 24-hour care options with trained dementia specialists
-              </div>
-            </div>
-            <button class="btn btn-outline service-toggle" onclick="toggleService(4, this)">
-              Learn More
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-          </div>
-          
-          <div class="service-card animate-on-scroll stagger-5">
-            <div class="service-header">
-              <div class="service-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
-              </div>
-              <h3>Post-Surgery Care</h3>
-            </div>
-            <p>Recovery support after hospital discharge to ensure smooth healing and rehabilitation.</p>
-            <ul class="service-features">
-              <li>Wound management</li>
-              <li>Physical therapy</li>
-              <li>Recovery monitoring</li>
-            </ul>
-            <div class="service-expanded" id="service-5">
-              <h4>Additional Services:</h4>
-              <ul>
-                <li>Pain management support</li>
-                <li>Mobility exercises</li>
-                <li>Nutrition guidance</li>
-                <li>Surgical site monitoring</li>
-                <li>Medication administration</li>
-                <li>Follow-up appointment coordination</li>
-              </ul>
-              <div class="service-availability">
-                <strong>Availability:</strong> Short-term and extended recovery programs available
-              </div>
-            </div>
-            <button class="btn btn-outline service-toggle" onclick="toggleService(5, this)">
-              Learn More
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-          </div>
-          
-          <div class="service-card animate-on-scroll stagger-6">
-            <div class="service-header">
-              <div class="service-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
-              </div>
-              <h3>Chronic Disease Management</h3>
-            </div>
-            <p>Ongoing care for diabetes, hypertension, heart disease, and other chronic conditions.</p>
-            <ul class="service-features">
-              <li>Regular check-ups</li>
-              <li>Medication reminders</li>
-              <li>Diet guidance</li>
-            </ul>
-            <div class="service-expanded" id="service-6">
-              <h4>Additional Services:</h4>
-              <ul>
-                <li>Blood pressure monitoring</li>
-                <li>Diabetes care & insulin management</li>
-                <li>Lifestyle counseling</li>
-                <li>Exercise programs</li>
-                <li>Health education</li>
-                <li>Emergency response planning</li>
-              </ul>
-              <div class="service-availability">
-                <strong>Availability:</strong> Weekly, bi-weekly, or monthly care plans
-              </div>
-            </div>
-            <button class="btn btn-outline service-toggle" onclick="toggleService(6, this)">
-              Learn More
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="testimonials" class="section section-muted">
-      <div class="container">
-        <div class="section-header animate-on-scroll">
-          <span class="section-label">Testimonials</span>
-          <h2 class="section-title">What Our Clients Say</h2>
-          <p class="section-desc">Real stories from families who trusted us with their healthcare needs.</p>
-        </div>
-        <div class="testimonials-grid" id="testimonials-grid"></div>
-        <div class="testimonial-form-container">
-          <button class="btn btn-outline" id="share-btn" onclick="toggleTestimonialForm()" style="border-color: var(--primary); color: var(--primary);">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-            Share Your Experience
+          <button class="btn btn-outline service-toggle" onclick="toggleService(1, this)">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
-          <div class="testimonial-form" id="testimonial-form">
-            <h3>Share Your Testimonial</h3>
-            <form onsubmit="submitTestimonial(event)">
-              <div class="form-row">
-                <input type="text" class="form-input" placeholder="Your Name *" id="t-name" required>
-                <input type="text" class="form-input" placeholder="Your Role (e.g., Patient, Family)" id="t-role">
-              </div>
-              <div class="form-group">
-                <label>Your Rating</label>
-                <div class="rating-selector" id="rating-selector">
-                  <button type="button" onclick="setRating(1)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
-                  <button type="button" onclick="setRating(2)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
-                  <button type="button" onclick="setRating(3)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
-                  <button type="button" onclick="setRating(4)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
-                  <button type="button" onclick="setRating(5)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
-                </div>
-              </div>
-              <div class="form-group">
-                <textarea class="form-input form-textarea" placeholder="Share your experience with Siwan Healthcare Services... *" id="t-content" required></textarea>
-              </div>
-              <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Submit Testimonial</button>
-                <button type="button" class="btn btn-outline" onclick="toggleTestimonialForm()">Cancel</button>
-              </div>
-            </form>
+        </div>
+        
+        <div class="service-card animate-on-scroll stagger-2">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </div>
+            <h3>Home Health Aide</h3>
           </div>
+          <p>Personal care assistance with daily activities to maintain comfort and dignity at home.</p>
+          <ul class="service-features">
+            <li>Bathing & hygiene</li>
+            <li>Mobility assistance</li>
+            <li>Meal preparation</li>
+          </ul>
+          <div class="service-expanded" id="service-2">
+            <h4>Additional Services:</h4>
+            <ul>
+              <li>Light housekeeping</li>
+              <li>Companionship & emotional support</li>
+              <li>Errand assistance</li>
+              <li>Grocery shopping</li>
+              <li>Laundry & clothing care</li>
+              <li>Transportation to appointments</li>
+            </ul>
+            <div class="service-availability">
+              <strong>Availability:</strong> Flexible scheduling - hourly, daily, or live-in options
+            </div>
+          </div>
+          <button class="btn btn-outline service-toggle" onclick="toggleService(2, this)">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+        
+        <div class="service-card animate-on-scroll stagger-3">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></svg>
+            </div>
+            <h3>Mother & Baby Care</h3>
+          </div>
+          <p>Specialized post-natal care for new mothers and newborn babies in the comfort of your home.</p>
+          <ul class="service-features">
+            <li>Newborn care</li>
+            <li>Breastfeeding support</li>
+            <li>Mother's recovery</li>
+          </ul>
+          <div class="service-expanded" id="service-3">
+            <h4>Additional Services:</h4>
+            <ul>
+              <li>Umbilical cord care & bathing</li>
+              <li>Sleep training guidance</li>
+              <li>Postpartum wellness monitoring</li>
+              <li>Baby massage techniques</li>
+              <li>Feeding schedule management</li>
+              <li>Mother's nutrition counseling</li>
+            </ul>
+            <div class="service-availability">
+              <strong>Availability:</strong> Day and night shifts available for first 40 days
+            </div>
+          </div>
+          <button class="btn btn-outline service-toggle" onclick="toggleService(3, this)">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+        
+        <div class="service-card animate-on-scroll stagger-4">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>
+            </div>
+            <h3>Dementia & Elderly Care</h3>
+          </div>
+          <p>Compassionate care for seniors with dementia, Alzheimer's, or age-related conditions.</p>
+          <ul class="service-features">
+            <li>Memory care</li>
+            <li>Safety supervision</li>
+            <li>Companionship</li>
+          </ul>
+          <div class="service-expanded" id="service-4">
+            <h4>Additional Services:</h4>
+            <ul>
+              <li>Daily routine assistance</li>
+              <li>Fall prevention strategies</li>
+              <li>Medication reminders</li>
+              <li>Cognitive stimulation activities</li>
+              <li>Wandering prevention</li>
+              <li>Family respite care</li>
+            </ul>
+            <div class="service-availability">
+              <strong>Availability:</strong> 24-hour care options with trained dementia specialists
+            </div>
+          </div>
+          <button class="btn btn-outline service-toggle" onclick="toggleService(4, this)">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+        
+        <div class="service-card animate-on-scroll stagger-5">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+            </div>
+            <h3>Post-Surgery Care</h3>
+          </div>
+          <p>Recovery support after hospital discharge to ensure smooth healing and rehabilitation.</p>
+          <ul class="service-features">
+            <li>Wound management</li>
+            <li>Physical therapy</li>
+            <li>Recovery monitoring</li>
+          </ul>
+          <div class="service-expanded" id="service-5">
+            <h4>Additional Services:</h4>
+            <ul>
+              <li>Pain management support</li>
+              <li>Mobility exercises</li>
+              <li>Nutrition guidance</li>
+              <li>Surgical site monitoring</li>
+              <li>Medication administration</li>
+              <li>Follow-up appointment coordination</li>
+            </ul>
+            <div class="service-availability">
+              <strong>Availability:</strong> Short-term and extended recovery programs available
+            </div>
+          </div>
+          <button class="btn btn-outline service-toggle" onclick="toggleService(5, this)">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+        
+        <div class="service-card animate-on-scroll stagger-6">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
+            </div>
+            <h3>Chronic Disease Management</h3>
+          </div>
+          <p>Ongoing care for diabetes, hypertension, heart disease, and other chronic conditions.</p>
+          <ul class="service-features">
+            <li>Regular check-ups</li>
+            <li>Medication reminders</li>
+            <li>Diet guidance</li>
+          </ul>
+          <div class="service-expanded" id="service-6">
+            <h4>Additional Services:</h4>
+            <ul>
+              <li>Blood pressure monitoring</li>
+              <li>Diabetes care & insulin management</li>
+              <li>Lifestyle counseling</li>
+              <li>Exercise programs</li>
+              <li>Health education</li>
+              <li>Emergency response planning</li>
+            </ul>
+            <div class="service-availability">
+              <strong>Availability:</strong> Weekly, bi-weekly, or monthly care plans
+            </div>
+          </div>
+          <button class="btn btn-outline service-toggle" onclick="toggleService(6, this)">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-header animate-on-scroll">
-          <span class="section-label">Book an Appointment</span>
-          <h2 class="section-title">Schedule Your Care Today</h2>
-          <p class="section-desc">Ready to experience quality home healthcare? Fill out the form below and we'll get back to you within 24 hours.</p>
-        </div>
-        <div class="contact-grid">
-          <div class="contact-info animate-on-scroll">
-            <h3>Contact Information</h3>
-            <div class="contact-item">
-              <button class="contact-icon" onclick="openLocation()" aria-label="Open location in maps">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              </button>
-              <div>
-                <h4>Address</h4>
-                <button onclick="openLocation()">Siwan, Haryana, INDIA (136033)</button>
-              </div>
-            </div>
-            <div class="contact-item">
-              <a class="contact-icon" href="tel:+919896227706" aria-label="Call us">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </a>
-              <div>
-                <h4>Phone</h4>
-                <a href="tel:+919896227706">+91 98962 27706</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <a class="contact-icon" href="https://wa.me/919896227706" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp us">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-              </a>
-              <div>
-                <h4>WhatsApp</h4>
-                <a href="https://wa.me/919896227706" target="_blank" rel="noopener noreferrer">Chat with us</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <a class="contact-icon" href="mailto:support@siwanhealthcareservices.in" aria-label="Email us">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              </a>
-              <div>
-                <h4>Email</h4>
-                <a href="mailto:support@siwanhealthcareservices.in">support@siwanhealthcareservices.in</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon" style="cursor: default;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <div>
-                <h4>Hours</h4>
-                <p>24/7 Emergency Care Available</p>
-              </div>
-            </div>
-          </div>
-          <form class="booking-form animate-on-scroll" onsubmit="submitBooking(event)">
-            <input type="text" class="form-input" placeholder="Your Full Name *" id="b-name" required>
+  <section id="testimonials" class="section section-muted">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-desc">Real stories from families who trusted us with their healthcare needs.</p>
+      </div>
+      <div class="testimonials-grid" id="testimonials-grid"></div>
+      <div class="testimonial-form-container">
+        <button class="btn btn-outline" id="share-btn" onclick="toggleTestimonialForm()" style="border-color: var(--primary); color: var(--primary);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          Share Your Experience
+        </button>
+        <div class="testimonial-form" id="testimonial-form">
+          <h3>Share Your Testimonial</h3>
+          <form onsubmit="submitTestimonial(event)">
             <div class="form-row">
-              <input type="tel" class="form-input" placeholder="Phone Number *" id="b-phone" required>
-              <input type="email" class="form-input" placeholder="Email Address *" id="b-email" required>
+              <input type="text" class="form-input" placeholder="Your Name *" id="t-name" required>
+              <input type="text" class="form-input" placeholder="Your Role (e.g., Patient, Family)" id="t-role">
             </div>
-            <div class="form-row">
-              <select id="b-service" required>
-                <option value="">Select a Service *</option>
-                <option value="General Nursing Care">General Nursing Care</option>
-                <option value="Home Health Aide">Home Health Aide</option>
-                <option value="Mother & Baby Care">Mother & Baby Care</option>
-                <option value="Dementia & Elderly Care">Dementia & Elderly Care</option>
-                <option value="Post-Surgery Care">Post-Surgery Care</option>
-                <option value="Chronic Disease Management">Chronic Disease Management</option>
-                <option value="Other">Other</option>
-              </select>
-              <input type="date" class="form-input" id="b-date">
+            <div class="form-group">
+              <label>Your Rating</label>
+              <div class="rating-selector" id="rating-selector">
+                <button type="button" onclick="setRating(1)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+                <button type="button" onclick="setRating(2)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+                <button type="button" onclick="setRating(3)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+                <button type="button" onclick="setRating(4)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+                <button type="button" onclick="setRating(5)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="active"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+              </div>
             </div>
-            <textarea class="form-input form-textarea" placeholder="Tell us about your healthcare needs..." id="b-message" required></textarea>
-            <button type="submit" class="btn btn-primary">Book Appointment</button>
-            <p class="form-note">By submitting this form, your email client will open with the booking details. Send the email to complete your request.</p>
+            <div class="form-group">
+              <textarea class="form-input form-textarea" placeholder="Share your experience with Siwan Healthcare Services... *" id="t-content" required></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Submit Testimonial</button>
+              <button type="button" class="btn btn-outline" onclick="toggleTestimonialForm()">Cancel</button>
+            </div>
           </form>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Book an Appointment</span>
+        <h2 class="section-title">Schedule Your Care Today</h2>
+        <p class="section-desc">Ready to experience quality home healthcare? Fill out the form below and we'll get back to you within 24 hours.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info animate-on-scroll">
+          <h3>Contact Information</h3>
+          <div class="contact-item">
+            <button class="contact-icon" onclick="openLocation()" aria-label="Open location in maps">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </button>
+            <div>
+              <h4>Address</h4>
+              <button onclick="openLocation()">Siwan, Haryana, INDIA (136033)</button>
+            </div>
+          </div>
+          <div class="contact-item">
+            <a class="contact-icon" href="tel:+919896227706" aria-label="Call us">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+919896227706">+91 98962 27706</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <a class="contact-icon" href="https://wa.me/919896227706" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp us">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            </a>
+            <div>
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/919896227706" target="_blank" rel="noopener noreferrer">Chat with us</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <a class="contact-icon" href="mailto:support@siwanhealthcareservices.in" aria-label="Email us">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:support@siwanhealthcareservices.in">support@siwanhealthcareservices.in</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" style="cursor: default;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4>Hours</h4>
+              <p>24/7 Emergency Care Available</p>
+            </div>
+          </div>
+        </div>
+        <form class="booking-form animate-on-scroll" onsubmit="submitBooking(event)">
+          <input type="text" class="form-input" placeholder="Your Full Name *" id="b-name" required>
+          <div class="form-row">
+            <input type="tel" class="form-input" placeholder="Phone Number *" id="b-phone" required>
+            <input type="email" class="form-input" placeholder="Email Address *" id="b-email" required>
+          </div>
+          <div class="form-row">
+            <select id="b-service" required>
+              <option value="">Select a Service *</option>
+              <option value="General Nursing Care">General Nursing Care</option>
+              <option value="Home Health Aide">Home Health Aide</option>
+              <option value="Mother & Baby Care">Mother & Baby Care</option>
+              <option value="Dementia & Elderly Care">Dementia & Elderly Care</option>
+              <option value="Post-Surgery Care">Post-Surgery Care</option>
+              <option value="Chronic Disease Management">Chronic Disease Management</option>
+              <option value="Other">Other</option>
+            </select>
+            <input type="date" class="form-input" id="b-date" placeholder="Preferred Date">
+          </div>
+          <textarea class="form-input form-textarea" placeholder="Tell us about your healthcare needs..." id="b-message" required></textarea>
+          <button type="submit" class="btn btn-primary">Book Appointment</button>
+          <p class="form-note">By submitting this form, your email client will open with the booking details. Send the email to complete your request.</p>
+        </form>
+      </div>
+    </div>
+  </section>
 
   <footer class="footer">
     <div class="container">
