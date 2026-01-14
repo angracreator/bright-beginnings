@@ -63,6 +63,9 @@ const Footer = () => {
               Siwan Healthcare Services provides compassionate, professional home
               healthcare services to individuals and families. Serving since 2024.
             </p>
+            <p className="text-secondary-foreground/60 text-xs mt-2">
+              MSME Reg: UDYAM-HR-09-0056985
+            </p>
           </div>
 
           {/* Quick Links */}
