@@ -7,28 +7,28 @@ import { toast } from "sonner";
 
 const initialTestimonials = [
   {
-    name: "Rajesh Kumar",
+    name: "Sujal Madaan",
     role: "Son of Patient",
     content:
       "The care provided to my elderly mother was exceptional. The nurses were not just professional but treated her like family. Highly recommended!",
     rating: 5,
   },
   {
-    name: "Priya Singh",
+    name: "Lovepreet Kaur",
     role: "New Mother",
     content:
       "After my delivery, SHS provided wonderful post-natal care. The caregiver was experienced, helpful, and made my recovery so much easier.",
     rating: 5,
   },
   {
-    name: "Dr. Amit Verma",
+    name: "Dr. Rajender Chutani",
     role: "Referring Physician",
     content:
       "I regularly refer my patients to Siwan Healthcare Services for home care. Their professionalism and quality of care are consistently excellent.",
     rating: 5,
   },
   {
-    name: "Sunita Devi",
+    name: "Davinder Kaur",
     role: "Patient",
     content:
       "Managing my diabetes at home has become so much easier with SHS. Regular monitoring and diet guidance have improved my health significantly.",
