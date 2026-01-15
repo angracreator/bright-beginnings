@@ -21,7 +21,7 @@ const initialTestimonials = [
     rating: 5,
   },
   {
-    name: "Dr. Rajender Chutani",
+    name: "Dr. Rajbir Singh Patlan",
     role: "Referring Physician",
     content:
       "I regularly refer my patients to Siwan Healthcare Services for home care. Their professionalism and quality of care are consistently excellent.",
