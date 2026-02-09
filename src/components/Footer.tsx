@@ -61,7 +61,7 @@ const Footer = () => {
             variants={columnVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <motion.img
               src={LOGO_URL}
@@ -85,7 +85,7 @@ const Footer = () => {
             variants={columnVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <h4 className="font-heading font-semibold text-lg mb-4 text-gold">
               Quick Links
@@ -96,7 +96,7 @@ const Footer = () => {
                   key={link.label}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: 0.3 + i * 0.05 }}
                 >
                   <a
@@ -116,7 +116,7 @@ const Footer = () => {
             variants={columnVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <h4 className="font-heading font-semibold text-lg mb-4 text-gold">
               Our Services
@@ -127,7 +127,7 @@ const Footer = () => {
                   key={service}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: 0.3 + i * 0.05 }}
                 >
                   <span className="text-secondary-foreground/80 text-sm">
@@ -144,7 +144,7 @@ const Footer = () => {
             variants={columnVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <h4 className="font-heading font-semibold text-lg mb-4 text-gold">
               Contact Us
@@ -197,7 +197,7 @@ const Footer = () => {
           className="border-t border-secondary-foreground/20 mt-10 pt-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ delay: 0.5 }}
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">

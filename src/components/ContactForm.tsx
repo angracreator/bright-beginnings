@@ -120,7 +120,7 @@ const ContactForm = () => {
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-primary font-semibold text-sm uppercase tracking-wider"
           >
             Book an Appointment
@@ -128,7 +128,7 @@ const ContactForm = () => {
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.1, duration: 0.6 }}
             className="text-3xl md:text-4xl font-heading font-bold text-secondary mt-2 mb-4"
           >
@@ -137,14 +137,14 @@ const ContactForm = () => {
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: 80 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="h-1 bg-primary mx-auto rounded-full mb-4"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.2 }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
@@ -158,12 +158,12 @@ const ContactForm = () => {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <motion.h3
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-2xl font-heading font-semibold text-secondary mb-6"
             >
               Contact Information
@@ -177,7 +177,7 @@ const ContactForm = () => {
                   variants={contactItemVariants}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                 >
                   {info.title === "Address" ? (
                     <motion.button
@@ -240,7 +240,7 @@ const ContactForm = () => {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -265,7 +265,7 @@ const ContactForm = () => {
                   variants={formFieldVariants}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                 >
                   {field}
                 </motion.div>
@@ -273,7 +273,7 @@ const ContactForm = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ delay: 0.5 }}
               >
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
