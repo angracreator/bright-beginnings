@@ -75,6 +75,18 @@ const Testimonials = () => {
       return;
     }
 
+    // Send testimonial via email
+    const subject = encodeURIComponent(`New Testimonial from ${formData.name}`);
+    const body = encodeURIComponent(
+      `New Testimonial Received\n\n` +
+      `Name: ${formData.name}\n` +
+      `Role: ${formData.role || "Customer"}\n` +
+      `Rating: ${"★".repeat(formData.rating)}${"☆".repeat(5 - formData.rating)} (${formData.rating}/5)\n\n` +
+      `Testimonial:\n"${formData.content}"\n\n` +
+      `---\nThis testimonial was submitted via the website.`
+    );
+    window.location.href = `mailto:support@siwanhealthcareservices.in?subject=${subject}&body=${body}`;
+
     const newTestimonial = {
       name: formData.name,
       role: formData.role || "Customer",
@@ -85,7 +97,7 @@ const Testimonials = () => {
     setTestimonials([...testimonials, newTestimonial]);
     setFormData({ name: "", role: "", content: "", rating: 5 });
     setShowForm(false);
-    toast.success("Thank you for sharing your experience! Your testimonial has been added.");
+    toast.success("Your testimonial has been submitted! Please send the email to complete your submission.");
   };
 
   return (
