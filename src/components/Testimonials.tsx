@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Star, Quote, Send } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -42,16 +42,18 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.15,
+      delayChildren: 0.1,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, scale: 0.95 },
+  hidden: { opacity: 0, y: 40, scale: 0.9 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5 },
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const },
   },
 };
 
@@ -67,7 +69,7 @@ const Testimonials = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.content) {
       toast.error("Please fill in your name and testimonial");
       return;
@@ -87,26 +89,33 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-muted">
+    <section id="testimonials" className="py-20 bg-muted overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-primary font-semibold text-sm uppercase tracking-wider"
           >
             Testimonials
           </motion.span>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
             className="text-3xl md:text-4xl font-heading font-bold text-secondary mt-2 mb-4"
           >
             What Our Clients Say
           </motion.h2>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="h-1 bg-primary mx-auto rounded-full mb-4"
+          />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -122,33 +131,56 @@ const Testimonials = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-card rounded-xl p-6 border border-border relative"
+              whileHover={{
+                y: -6,
+                boxShadow: "0 20px 40px -12px rgba(0,0,0,0.12)",
+                transition: { duration: 0.3 },
+              }}
+              className="bg-card rounded-xl p-6 border border-border relative group"
             >
-              <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/20" />
-              
+              <motion.div
+                className="absolute top-4 right-4"
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Quote className="w-8 h-8 text-primary/15 group-hover:text-primary/30 transition-colors" />
+              </motion.div>
+
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-gold text-gold" />
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + i * 0.08, type: "spring", stiffness: 300 }}
+                  >
+                    <Star className="w-5 h-5 fill-gold text-gold" />
+                  </motion.div>
                 ))}
               </div>
-              
+
               <p className="text-foreground italic mb-6 leading-relaxed">
                 "{testimonial.content}"
               </p>
-              
+
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <motion.div
+                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   <span className="text-primary font-bold text-lg">
                     {testimonial.name.charAt(0)}
                   </span>
-                </div>
+                </motion.div>
                 <div>
                   <p className="font-semibold text-secondary">{testimonial.name}</p>
                   <p className="text-sm text-muted-foreground">{testimonial.role}</p>
@@ -167,19 +199,22 @@ const Testimonials = () => {
           className="mt-12 text-center"
         >
           {!showForm ? (
-            <Button
-              onClick={() => setShowForm(true)}
-              variant="outline"
-              size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-            >
-              <Send className="w-4 h-4 mr-2" />
-              Share Your Experience
-            </Button>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                onClick={() => setShowForm(true)}
+                variant="outline"
+                size="lg"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              >
+                <Send className="w-4 h-4 mr-2" />
+                Share Your Experience
+              </Button>
+            </motion.div>
           ) : (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ type: "spring", stiffness: 200, damping: 20 }}
               className="max-w-xl mx-auto bg-card rounded-xl p-6 border border-border"
             >
               <h3 className="text-xl font-heading font-semibold text-secondary mb-4">
@@ -203,18 +238,20 @@ const Testimonials = () => {
                     className="h-12"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-secondary mb-2">
                     Your Rating
                   </label>
                   <div className="flex gap-2">
                     {[1, 2, 3, 4, 5].map((star) => (
-                      <button
+                      <motion.button
                         key={star}
                         type="button"
                         onClick={() => setFormData({ ...formData, rating: star })}
                         className="focus:outline-none"
+                        whileHover={{ scale: 1.3 }}
+                        whileTap={{ scale: 0.9 }}
                       >
                         <Star
                           className={`w-8 h-8 transition-colors ${
@@ -223,7 +260,7 @@ const Testimonials = () => {
                               : "text-muted-foreground"
                           }`}
                         />
-                      </button>
+                      </motion.button>
                     ))}
                   </div>
                 </div>
