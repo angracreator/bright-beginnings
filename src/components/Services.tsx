@@ -131,7 +131,7 @@ const Services = () => {
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-primary font-semibold text-sm uppercase tracking-wider"
           >
             Our Services
@@ -139,7 +139,7 @@ const Services = () => {
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.1, duration: 0.6 }}
             className="text-3xl md:text-4xl font-heading font-bold text-secondary mt-2 mb-4"
           >
@@ -148,14 +148,14 @@ const Services = () => {
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: 80 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="h-1 bg-primary mx-auto rounded-full mb-4"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.2 }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
@@ -168,7 +168,7 @@ const Services = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: false, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           style={{ perspective: 1000 }}
         >
@@ -207,7 +207,7 @@ const Services = () => {
                       className="flex items-center gap-2 text-sm text-foreground"
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: false }}
                       transition={{ delay: i * 0.05 }}
                     >
                       <motion.span
