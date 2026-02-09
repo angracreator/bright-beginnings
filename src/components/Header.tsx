@@ -16,59 +16,85 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border"
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="#" className="flex items-center">
-            <img 
-              src={LOGO_URL} 
-              alt="Siwan Healthcare Services" 
+          <motion.a
+            href="#"
+            className="flex items-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <img
+              src={LOGO_URL}
+              alt="Siwan Healthcare Services"
               className="h-12 md:h-14"
               onError={(e) => {
                 e.currentTarget.src = "/placeholder.svg";
               }}
             />
-          </a>
+          </motion.a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-2">
-            {navLinks.map((link) => (
-              <Button key={link.label} variant="nav" size="sm" asChild>
-                <a href={link.href}>{link.label}</a>
-              </Button>
+            {navLinks.map((link, i) => (
+              <motion.div
+                key={link.label}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
+              >
+                <Button key={link.label} variant="nav" size="sm" asChild>
+                  <a href={link.href}>{link.label}</a>
+                </Button>
+              </motion.div>
             ))}
-            <Button size="sm" className="ml-4" asChild>
-              <a href="#contact">Book Appointment</a>
-            </Button>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.7, type: "spring", stiffness: 200 }}
+            >
+              <Button size="sm" className="ml-4" asChild>
+                <a href="#contact">Book Appointment</a>
+              </Button>
+            </motion.div>
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
+          <motion.button
             className="md:hidden p-2 text-secondary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
+            whileTap={{ scale: 0.9, rotate: 90 }}
+            transition={{ duration: 0.2 }}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          </motion.button>
         </div>
 
         {/* Mobile Navigation Dropdown */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.nav
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden absolute left-0 right-0 top-full bg-background border-b border-border shadow-lg z-50"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden absolute left-0 right-0 top-full bg-background border-b border-border shadow-lg z-50 overflow-hidden"
             >
               <div className="container mx-auto px-4 py-4 flex flex-col gap-1">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.label}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -40 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
+                    exit={{ opacity: 0, x: -40 }}
+                    transition={{ delay: index * 0.07, type: "spring", stiffness: 300, damping: 24 }}
                   >
                     <a
                       href={link.href}
@@ -81,9 +107,10 @@ const Header = () => {
                   </motion.div>
                 ))}
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navLinks.length * 0.05 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ delay: navLinks.length * 0.07 }}
                   className="pt-2 mt-2 border-t border-border"
                 >
                   <Button className="w-full" asChild>
@@ -97,7 +124,7 @@ const Header = () => {
           )}
         </AnimatePresence>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

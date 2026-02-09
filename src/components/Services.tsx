@@ -102,16 +102,18 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
+      delayChildren: 0.15,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30, rotateX: 15 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 },
+    rotateX: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const },
   },
 };
 
@@ -123,26 +125,33 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20">
+    <section id="services" className="py-20 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-primary font-semibold text-sm uppercase tracking-wider"
           >
             Our Services
           </motion.span>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
             className="text-3xl md:text-4xl font-heading font-bold text-secondary mt-2 mb-4"
           >
             Comprehensive Healthcare Solutions
           </motion.h2>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="h-1 bg-primary mx-auto rounded-full mb-4"
+          />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -159,8 +168,9 @@ const Services = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          style={{ perspective: 1000 }}
         >
           {services.map((service) => {
             const isExpanded = expandedCard === service.title;
@@ -169,24 +179,43 @@ const Services = () => {
                 key={service.title}
                 variants={itemVariants}
                 layout
-                className="bg-card border border-border rounded-xl p-6 hover:shadow-xl transition-all duration-300 group"
+                whileHover={{
+                  y: -6,
+                  boxShadow: "0 25px 50px -12px rgba(0,0,0,0.12)",
+                  transition: { duration: 0.3 },
+                }}
+                className="bg-card border border-border rounded-xl p-6 transition-colors duration-300 group"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <motion.div
+                    className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center flex-shrink-0"
+                    whileHover={{ scale: 1.15, rotate: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
                     <service.icon className="w-6 h-6 text-primary-foreground" />
-                  </div>
+                  </motion.div>
                   <h3 className="text-xl font-heading font-semibold text-secondary">
                     {service.title}
                   </h3>
                 </div>
                 <p className="text-muted-foreground mb-4">{service.description}</p>
-                
+
                 <ul className="space-y-2 mb-4">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-foreground">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+                  {service.features.map((feature, i) => (
+                    <motion.li
+                      key={feature}
+                      className="flex items-center gap-2 text-sm text-foreground"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}
+                    >
+                      <motion.span
+                        className="w-1.5 h-1.5 rounded-full bg-gold"
+                        whileHover={{ scale: 2 }}
+                      />
                       {feature}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
 
@@ -196,25 +225,36 @@ const Services = () => {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
                       <div className="border-t border-border pt-4 mt-2">
                         <p className="text-sm font-semibold text-secondary mb-3">Additional Services:</p>
                         <ul className="space-y-2 mb-4">
-                          {service.expandedFeatures.map((feature) => (
-                            <li key={feature} className="flex items-center gap-2 text-sm text-foreground">
+                          {service.expandedFeatures.map((feature, i) => (
+                            <motion.li
+                              key={feature}
+                              className="flex items-center gap-2 text-sm text-foreground"
+                              initial={{ opacity: 0, x: -15 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: i * 0.05 }}
+                            >
                               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                               {feature}
-                            </li>
+                            </motion.li>
                           ))}
                         </ul>
-                        <div className="bg-muted rounded-lg p-3">
+                        <motion.div
+                          className="bg-muted rounded-lg p-3"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: 0.2 }}
+                        >
                           <p className="text-sm text-muted-foreground">
                             <span className="font-semibold text-secondary">Availability: </span>
                             {service.availability}
                           </p>
-                        </div>
+                        </motion.div>
                       </div>
                     </motion.div>
                   )}
@@ -227,11 +267,13 @@ const Services = () => {
                   onClick={() => toggleCard(service.title)}
                 >
                   {isExpanded ? "Show Less" : "Learn More"}
-                  <ChevronDown
-                    className={`w-4 h-4 ml-2 transition-transform duration-300 ${
-                      isExpanded ? "rotate-180" : ""
-                    }`}
-                  />
+                  <motion.span
+                    animate={{ rotate: isExpanded ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="ml-2"
+                  >
+                    <ChevronDown className="w-4 h-4" />
+                  </motion.span>
                 </Button>
               </motion.div>
             );
