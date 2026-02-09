@@ -1272,6 +1272,21 @@
         return;
       }
 
+      // Send testimonial via email
+      var stars = '';
+      for (var s = 0; s < currentRating; s++) stars += '★';
+      for (var s = currentRating; s < 5; s++) stars += '☆';
+      var subject = encodeURIComponent('New Testimonial from ' + name);
+      var body = encodeURIComponent(
+        'New Testimonial Received\n\n' +
+        'Name: ' + name + '\n' +
+        'Role: ' + role + '\n' +
+        'Rating: ' + stars + ' (' + currentRating + '/5)\n\n' +
+        'Testimonial:\n"' + content + '"\n\n' +
+        '---\nThis testimonial was submitted via the website.'
+      );
+      window.location.href = 'mailto:support@siwanhealthcareservices.in?subject=' + subject + '&body=' + body;
+
       testimonials.push({ name: name, role: role, content: content, rating: currentRating });
       localStorage.setItem('shs_testimonials', JSON.stringify(testimonials));
       
@@ -1283,7 +1298,7 @@
       document.getElementById('t-content').value = '';
       setRating(5);
       
-      showToast('Thank you for sharing your experience! Your testimonial has been added.', 'success');
+      showToast('Your testimonial has been submitted! Please send the email to complete your submission.', 'success');
     }
 
     function submitBooking(e) {
